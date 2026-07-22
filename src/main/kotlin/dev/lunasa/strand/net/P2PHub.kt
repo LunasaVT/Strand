@@ -62,13 +62,10 @@ object P2PHub {
                 logger.info("P2P NAT type -> {} ({})", it.natType, it.result)
             }
 
-            val result = p2p.setRelayControl(EosRelayControl.ForceRelays)
+            p2p.setRelayControl(EosRelayControl.AllowRelays) // can be used as a fallback
+
             val effectiveRelay = p2p.getRelayControl()
-            if (effectiveRelay == EosRelayControl.ForceRelays) {
-                logger.info("P2P relay control -> ForceRelays enforced ($result)")
-            } else {
-                logger.warn("P2P relay control -> requested ForceRelays but SDK reports {} ($result)", effectiveRelay)
-            }
+            logger.info("P2P Relay Control -> $effectiveRelay")
 
             val queueResult = p2p.setPacketQueueSize(PACKET_QUEUE_BYTES, PACKET_QUEUE_BYTES)
             logger.info("P2P packet queue -> {} bytes each way ({})", PACKET_QUEUE_BYTES, queueResult)
