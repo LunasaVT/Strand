@@ -22,9 +22,11 @@ object EosConstants {
     const val PRODUCT_NAME = "Strand"
     const val PRODUCT_VERSION = "0.0.1"
 
-    const val PRODUCT_ID = "79b0294675fd4414a27c516b09eedf52"
-    const val SANDBOX_ID = "a3ab28aec32441ab927af3cb664c1b8c"
-    const val DEPLOYMENT_ID = "965f505a35b44808bd5dbfc1cc6aa35c"
-    const val CLIENT_ID = "xyza7891uvjJwoFvcGX1mNgMf2dagjzl"
-    const val CLIENT_SECRET = "cGmnELXlN6luVf6L61q3cXX4tyfULhVWxgaP8fCgGjA"
+    const val PRODUCT_ID = "190e8c37605d4381806c9d2c4b1be2b4"
+
+    const val SANDBOX_ID = "a3b79fa608ba4c4d87b4eab8c352bdb3"
+    const val DEPLOYMENT_ID = "e2362760b40644729f368079bf394716"
+
+    const val CLIENT_ID = "xyza7891h76V9m3dSccmuLL3YfHozyFA"
+    const val CLIENT_SECRET = "CJk/mc9CK/dX6/ZTlDnwaJo3Dmd0XHSU2RmjTJqbBIg"
 }
