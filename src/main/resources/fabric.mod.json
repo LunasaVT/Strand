@@ -5,7 +5,8 @@
   "version": "${version}",
 
   "name": "Strand",
-  "description": "",
+  "description": "Open your Minecraft world to anyone, anywhere.",
+
   "authors": [
     {
       "name": "Lunasa",
@@ -15,9 +16,11 @@
       }
     }
   ],
+
   "contact": {
     "issues": "https://github.com/LunasaVT/Strand/issues",
-    "sources": "https://github.com/LunasaVT/Strand"
+    "sources": "https://github.com/LunasaVT/Strand",
+    "homepage": "https://github.com/LunasaVT/Strand"
   },
 
   "license": "AGPL-3.0",
