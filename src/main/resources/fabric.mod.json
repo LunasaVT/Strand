@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+
+  "id": "strand",
+  "version": "${version}",
+
+  "name": "Strand",
+  "description": "",
+  "authors": [
+    {
+      "name": "Lunasa",
+      "contact": {
+        "homepage": "https://github.com/LunasaVT",
+        "email": "prismriver@lunasa.dev"
+      }
+    }
+  ],
+  "contact": {
+    "issues": "https://github.com/LunasaVT/Strand/issues",
+    "sources": "https://github.com/LunasaVT/Strand"
+  },
+
+  "license": "AGPL-3.0",
+  "icon": "assets/strand/icon.png",
+
+  "environment": "client",
+
+  "mixins": [
+    "strand.mixins.json"
+  ],
+  "entrypoints": {
+    "client": [
+      "dev.lunasa.strand.client.StrandClient"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

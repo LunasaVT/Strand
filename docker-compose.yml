@@ -1,0 +1,47 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${STRAND_DB_NAME:-strand}
+      POSTGRES_USER: ${STRAND_DB_USER:-strand}
+      POSTGRES_PASSWORD: ${STRAND_DB_PASSWORD}
+    volumes:
+      - strand_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${STRAND_DB_USER:-strand} -d ${STRAND_DB_NAME:-strand}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - internal
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      STRAND_ISSUER: ${STRAND_ISSUER}
+      STRAND_OIDC_AUDIENCE: ${STRAND_OIDC_AUDIENCE:-strand}
+      STRAND_DB_URL: jdbc:postgresql://postgres:5432/${STRAND_DB_NAME:-strand}
+      STRAND_DB_USER: ${STRAND_DB_USER:-strand}
+      STRAND_DB_PASSWORD: ${STRAND_DB_PASSWORD}
+      STRAND_PORT: "8080"
+      STRAND_SEED: ${STRAND_SEED:-false}
+    expose:
+      - "8080"
+    networks:
+      - internal
+      - dokploy-network
+    restart: unless-stopped
+
+networks:
+  internal:
+  dokploy-network:
+    external: true
+
+volumes:
+  strand_pg:
