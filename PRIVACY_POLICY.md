@@ -13,7 +13,7 @@ By using Strand, you acknowledge that you have read this policy and, where requi
 
 ## 1. Who this policy applies to, and our role
 
-Lilith acts as the **data controller** for the data described in Section 2, meaning we decide why and how it's processed for purposes of running Strand. For the data described in Section 3, Epic Games, Inc. ("Epic") acts as an independent controller of the data it processes through Epic Online Services ("EOS"), Epic is not our data processor, and we don't control how Epic uses that data beyond what's described in our agreement with Epic.
+Lilith acts as the **data controller** for the data described in Section 4, meaning we decide why and how it's processed for purposes of running Strand. For the data described in Section 4, Epic Games, Inc. ("Epic") acts as an independent controller of the data it processes through Epic Online Services ("EOS"), Epic is not our data processor, and we don't control how Epic uses that data beyond what's described in our agreement with Epic.
 
 This policy is written for a general, worldwide audience. Section 8 describes rights that may apply to you depending on where you live.
 
