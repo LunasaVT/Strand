@@ -25,6 +25,7 @@ import net.minecraft.client.gui.components.Button
 import net.minecraft.client.gui.components.StringWidget
 import net.minecraft.client.gui.screens.Screen
 import net.minecraft.network.chat.Component
+import kotlin.math.min
 
 abstract class StrandScreen(title: Component, protected val parent: Screen?) : Screen(title) {
 
@@ -57,6 +58,8 @@ abstract class StrandScreen(title: Component, protected val parent: Screen?) : S
     override fun onClose() {
         if (parent != null) {
             minecraft.setScreenAndShow(parent)
+        } else {
+            minecraft.gui.setScreen(null)
         }
     }
 

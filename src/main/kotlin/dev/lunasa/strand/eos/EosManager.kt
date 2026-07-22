@@ -96,7 +96,7 @@ object EosManager {
             return
         }
         EosLogging.setCallback { msg -> onLog(msg.category, msg.level, msg.message) }
-        EosLogging.setLogLevel(EosLogCategory.AllCategories, EosLogLevel.VeryVerbose) // todo: set to warning b4 release
+        EosLogging.setLogLevel(EosLogCategory.AllCategories, EosLogLevel.Warning)
 
         current = createPlatform() ?: run {
             running = false

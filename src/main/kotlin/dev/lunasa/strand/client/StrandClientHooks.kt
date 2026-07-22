@@ -20,11 +20,13 @@ package dev.lunasa.strand.client
 
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService
 import dev.lunasa.strand.client.StrandCommands.PREFIX
+import dev.lunasa.strand.client.gui.StrandMultiplayerOptionsScreen
 import dev.lunasa.strand.session.ClientHooks
 import dev.lunasa.strand.session.Profile
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.components.toasts.SystemToast
 import net.minecraft.client.gui.screens.ConnectScreen
+import net.minecraft.client.gui.screens.MultiplayerOptionsScreen
 import net.minecraft.client.gui.screens.TitleScreen
 import net.minecraft.client.multiplayer.ServerData
 import net.minecraft.client.multiplayer.resolver.ServerAddress
@@ -69,7 +71,7 @@ class StrandClientHooks : ClientHooks {
 
     override fun notify(message: String) {
         minecraft.execute {
-            val component = Component.empty().append(PREFIX).append(" $message")
+            val component = Component.literal("").append(PREFIX).append(" $message")
             val player = minecraft.player
             if (player != null) player.sendSystemMessage(component) else logger.info(message)
         }
@@ -86,5 +88,10 @@ class StrandClientHooks : ClientHooks {
                 )
             }.onFailure { notify("$title: $body") }
         }
+    }
+
+    override fun openHostToLanScreen(onHosted: () -> Unit) {
+        val mc = Minecraft.getInstance()
+        mc.setScreenAndShow(StrandMultiplayerOptionsScreen(mc.gui.screen()) { onHosted() })
     }
 }

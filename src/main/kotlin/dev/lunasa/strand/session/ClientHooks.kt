@@ -25,4 +25,5 @@ interface ClientHooks {
     fun lanPort(): Int?
     fun notify(message: String)
     fun toast(title: String, body: String)
+    fun openHostToLanScreen(onHosted: () -> Unit)
 }

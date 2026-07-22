@@ -44,35 +44,37 @@ class StrandHubScreen(parent: Screen?) : StrandScreen(Component.literal("Strand"
         val bw = 204
         val gap = 24
 
-        if (c != null && c.connectionState() != ConnState.LoggedIn) {
-            val connecting = c.connectionState() == ConnState.Connecting
-            button(cx, y, bw, Component.literal(if (connecting) "Connecting..." else "Connect")) { c.connect() }
-            y += gap
-        }
-
         if (c != null && c.isHosting) {
             button(cx, y, bw, Component.literal("Stop hosting")) { c.unhost() }
+            y += gap
         } else {
-            button(cx, y, bw, Component.literal("Host this world")) { c?.host() }
+            if (minecraft.hasSingleplayerServer()) {
+                button(cx, y, bw, Component.literal("Host this world")) { c?.host() }
+                y += gap
+            }
         }
-        y += gap
 
-        button(cx, y, bw, Component.literal("Join by code")) { minecraft?.setScreenAndShow(StrandJoinScreen(this)) }
-        y += gap
+        y += 5
 
-        val pending = c?.pendingInvites()?.size ?: 0
-        val invitesLabel = if (pending > 0) "Invites ($pending)" else "Invites"
-        button(cx, y, bw, Component.literal(invitesLabel)) { minecraft?.setScreenAndShow(StrandInvitesScreen(this)) }
-        y += gap
+        // we use these to join, and it shouldn't be shown if the player is already hosting
+        if (c != null && !c.isHosting) {
+            button(cx, y, bw, Component.literal("Join by code")) { minecraft.setScreenAndShow(StrandJoinScreen(this)) }
+            y += gap
+
+            val pending = c.pendingInvites().size
+            val invitesLabel = if (pending > 0) "Invites ($pending)" else "Invites"
+            button(cx, y, bw, Component.literal(invitesLabel)) { minecraft.setScreenAndShow(StrandInvitesScreen(this)) }
+            y += gap + 5
+        }
 
         if (c != null && c.isHosting) {
-            button(cx, y, bw, Component.literal("Invite a player")) { minecraft?.setScreenAndShow(StrandInviteScreen(this)) }
+            button(cx, y, bw, Component.literal("Invite a player")) { minecraft.setScreenAndShow(StrandInviteScreen(this)) }
             y += gap
             button(cx, y, bw, Component.literal("Copy invite code")) { copyCode() }
-            y += gap
+            y += gap + 5
         }
 
-        button(cx, y, bw, Component.literal("Settings")) { minecraft?.setScreenAndShow(StrandSettingsScreen(this)) }
+        button(cx, y, bw, Component.literal("Settings")) { minecraft.setScreenAndShow(StrandSettingsScreen(this)) }
         y += gap
 
         button(cx, y, bw, Component.literal("Done")) { onClose() }

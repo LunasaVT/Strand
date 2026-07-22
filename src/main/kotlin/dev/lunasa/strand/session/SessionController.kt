@@ -79,8 +79,6 @@ class SessionController(
     fun removeListener(listener: () -> Unit) { listeners.remove(listener) }
     private fun changed() { listeners.forEach { runCatching { it() } } }
 
-    fun connect() { ensureLogin() }
-
     @Synchronized
     fun ensureLogin(): CompletableFuture<EosLoginSession> {
         session?.let { return CompletableFuture.completedFuture(it) }
@@ -151,7 +149,7 @@ class SessionController(
     fun host() {
         val port = hooks.lanPort()
         if (port == null) {
-            hooks.notify("Open your world to LAN first, then host on Strand.")
+            hooks.openHostToLanScreen { host() }
             return
         }
         ensureLogin().whenComplete { login, error ->

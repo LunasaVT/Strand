@@ -24,19 +24,17 @@ import dev.lunasa.strand.session.SessionController
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource
+import net.minecraft.ChatFormatting
 import net.minecraft.client.Minecraft
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.TextColor
 
 object StrandCommands {
-    val PREFIX = Component.empty()
-        .withColor(TextColor.GRAY)
-        .append("[")
-        .withColor(TextColor.AQUA)
-        .append("Strand")
-        .withColor(TextColor.GRAY)
-        .append("]")
-        .withColor(TextColor.WHITE)
+    val PREFIX = Component.literal("")
+        .append(Component.literal("[").withStyle(ChatFormatting.GRAY))
+        .append(Component.literal("Strand").withStyle(ChatFormatting.AQUA))
+        .append(Component.literal("]").withStyle(ChatFormatting.GRAY))
+        .withStyle(ChatFormatting.WHITE)
 
     fun register(controller: SessionController) {
         ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
@@ -91,7 +89,7 @@ object StrandCommands {
     }
 
     private fun feedback(source: FabricClientCommandSource, message: String) {
-        source.sendFeedback(Component.empty().append(PREFIX).append(" $message"))
+        source.sendFeedback(Component.literal("").append(PREFIX).append(" $message"))
     }
 
     private fun openHub() {
