@@ -27,7 +27,7 @@ Strand needs to exchange some data with our backend and with Epic Online Service
 
 Essentially,
 - We do not, and we cannot see what you do in game.
-- We share your data with Epic Games, Inc. to provide login functionality and P2P networking as described in Section 3 of the Privacy Policy.
+- We share your data with Epic Games, Inc. to provide login functionality and P2P networking as described in Section 4 of the Privacy Policy.
 - We do not use your data for advertising, and we do not build user profiles for any purpose beyond operating Strand.
 - We do not sell, rent, or otherwise disclose your data to third parties such as advertisers or data brokers.
 
