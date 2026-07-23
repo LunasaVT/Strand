@@ -5,7 +5,6 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
     id("net.fabricmc.fabric-loom")
-    id("dev.yumi.gradle.licenser")
     `maven-publish`
 }
 
@@ -41,7 +40,7 @@ dependencies {
 
     runtimeOnly("me.djtheredstoner:DevAuth-fabric:1.2.2")
 
-    implementation(include("gg.sona:eos:1.1.0")!!)
+    implementation(include("gg.sona:eos:1.1.1")!!)
 
     implementation(project(":common"))
 }
@@ -81,14 +80,6 @@ tasks.jar {
     from(rootProject.file("PRIVACY_POLICY.md")) {
         rename { "${it}_${project.base.archivesName.get()}" }
     }
-}
-
-license {
-    rule(rootProject.file("codeformat/HEADER"))
-
-    include("**/*.java")
-    include("**/*.kt")
-    exclude("**/*.properties")
 }
 
 loom {

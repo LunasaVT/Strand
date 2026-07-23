@@ -1,7 +1,6 @@
 plugins {
     kotlin("jvm") version "2.4.10"
     kotlin("plugin.serialization") version "2.4.10"
-    id("dev.yumi.gradle.licenser") version "4.0.+"
     application
 }
 
@@ -39,14 +38,6 @@ dependencies {
 
 application {
     mainClass.set("re.lilith.strand.backend.ApplicationKt")
-}
-
-
-license {
-    rule(file("../codeformat/HEADER"))
-
-    include("**/*.kt")
-    exclude("**/*.properties")
 }
 
 kotlin {

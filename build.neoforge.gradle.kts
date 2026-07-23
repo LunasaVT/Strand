@@ -5,7 +5,6 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
     id("net.neoforged.moddev")
-    id("dev.yumi.gradle.licenser")
     `maven-publish`
 }
 
@@ -55,8 +54,8 @@ neoForge {
 }
 
 dependencies {
-    implementation("gg.sona:eos:1.1.0")
-    jarJar("gg.sona:eos:1.1.0")
+    implementation("gg.sona:eos:1.1.1")
+    jarJar("gg.sona:eos:1.1.1")
 
     runtimeOnly("me.djtheredstoner:DevAuth-neoforge:1.2.2")
 
@@ -97,14 +96,6 @@ tasks.jar {
     from(rootProject.file("PRIVACY_POLICY.md")) {
         rename { "${it}_${project.base.archivesName.get()}" }
     }
-}
-
-license {
-    rule(rootProject.file("codeformat/HEADER"))
-
-    include("**/*.java")
-    include("**/*.kt")
-    exclude("**/*.properties")
 }
 
 publishing {

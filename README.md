@@ -19,7 +19,7 @@ Strand also provides a richer multiplayer experience through its built-in invita
 
 ## How do I use it?
 
-Download the mod, it has [Fabric Language Kotlin](https://modrinth.com/project/Ha28R6CL) and [Fabric API](https://modrinth.com/project/P7dR8mSH) as dependencies, so ensure you have them enabled. Depending on your platform, the first run may take a minute or two as it downloads required files. Once you're in, you can join a session using an **invite code** or if you've otherwise received an invite from a user. To access either, press the button labelled "Strand" in the main menu, the pause menu, and the multiplayer menu. You cannot join a session while already in-game. To host a world, you must be in a singleplayer world. You can use the `/strand` command to open the Strand Hub, through which you can press the "Host this world" button to host a world, "Copy invite code" button to copy the invite code, and the "Invite a player" button to invite a player by name. If you're already hosting a world, you can press the "Stop hosting" button to stop hosting the world. This will disconnect all players, leaving the world or quitting the game has the same effect.
+Download the mod, it has [Fabric Language Kotlin](https://modrinth.com/project/Ha28R6CL) and [Fabric API](https://modrinth.com/project/P7dR8mSH) as dependencies, so ensure you have them downloaded. Once you're in, you can join a session using an **invite code** or if you've otherwise received an invite from a user. To access either, press the button labelled "Strand" in the main menu, the pause menu, and the multiplayer menu. You cannot join a session while already in-game. To host a world, you must be in a singleplayer world. You can use the `/strand` command to open the Strand Hub, through which you can press the "Host this world" button to host a world, "Copy invite code" button to copy the invite code, and the "Invite a player" button to invite a player by name. If you're already hosting a world, you can press the "Stop hosting" button to stop hosting the world. This will disconnect all players, leaving the world or quitting the game has the same effect.
 
 ## Privacy
 
@@ -35,12 +35,12 @@ This is not the full Privacy Policy but a summary of it. Please read the full [P
 
 ## License
 
-Strand, including its backend, is licensed under AGPL-3.0. See [LICENSE.md](LICENSE.md) for the full license text.
+Strand, including its backend, is licensed under Polyform Shield 1.0.0. See [LICENSE.md](LICENSE.md) for the full license text.
 
 ### Epic Online Services (EOS) SDK
 
-This project integrates with the Epic Online Services (EOS) SDK, proprietary software owned by Epic Games, Inc. The EOS SDK is **not** covered by the AGPL-3.0 license above and is governed separately by the [Epic Online Services Terms of Service and Developer Agreement](https://onlineservices.epicgames.com/services/terms/agreements).
+This project integrates with the Epic Online Services (EOS) SDK, proprietary software owned by Epic Games, Inc. The EOS SDK is **not** covered by the Polyform Shield 1.0.0 license above and is governed separately by the [Epic Online Services Terms of Service and Developer Agreement](https://onlineservices.epicgames.com/services/terms/agreements).
 
-This repository does **not** distribute or bundle any EOS SDK binaries (e.g. `EOSSDK-Win64-Shipping.dll`, `libEOSSDK-Linux-Shipping.so`, `libEOSSDK-Mac-Shipping.dylib`). Anyone building this project must obtain the SDK directly from Epic Games under their own developer agreement.
+For more information, please read the [EOS Notice](NOTICE.md).
 
 "Epic Online Services," "EOS," and "Epic Games" are trademarks or registered trademarks of Epic Games, Inc.

@@ -4,7 +4,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
-    id("dev.yumi.gradle.licenser")
 }
 
 version = project.property("mod_version") as String
@@ -17,8 +16,9 @@ java {
 }
 
 dependencies {
+    implementation("org.jetbrains:annotations:26.1.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
-    implementation("gg.sona:eos:1.1.0")
+    implementation("gg.sona:eos:1.1.1")
 
     compileOnly("org.slf4j:slf4j-api:2.0.18")
 }
@@ -30,10 +30,4 @@ tasks.withType<JavaCompile>().configureEach {
 
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions.jvmTarget.set(JvmTarget.fromTarget(targetJavaVersion.toString()))
-}
-
-license {
-    rule(file("../codeformat/HEADER"))
-
-    include("**/*.kt")
 }

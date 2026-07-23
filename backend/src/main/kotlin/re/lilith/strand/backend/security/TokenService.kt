@@ -1,21 +1,3 @@
-/*
- * Strand - Open your Minecraft world to anyone, anywhere.
- * Copyright (C) 2026 Lilith Technologies LLC <hello@lilith.re>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 package re.lilith.strand.backend.security
 
 import com.nimbusds.jose.JOSEObjectType
@@ -42,7 +24,7 @@ class TokenService(private val config: Config, keys: KeyManager) {
     fun issueAccessToken(userId: UUID, username: String, nonce: String?): IssuedToken =
         sign(userId, username, config.audience, config.tokenTtl.seconds, nonce)
 
-    fun verifySession(token: String): UUID? = verify(token, SESSION_AUDIENCE)
+    fun verifySession(token: String): UUID? = verify(token)
 
     private fun sign(userId: UUID, username: String, audience: String, ttl: Long, nonce: String?): IssuedToken {
         val now = Instant.now()
@@ -63,7 +45,7 @@ class TokenService(private val config: Config, keys: KeyManager) {
         return IssuedToken(jwt.serialize(), ttl)
     }
 
-    private fun verify(token: String, audience: String): UUID? = try {
+    private fun verify(token: String, audience: String = SESSION_AUDIENCE): UUID? = try {
         val jwt = SignedJWT.parse(token)
         val claims = jwt.jwtClaimsSet
         when {

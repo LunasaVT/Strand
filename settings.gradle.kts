@@ -21,7 +21,6 @@ pluginManagement {
         kotlin("plugin.serialization") version "2.4.10"
         id("net.fabricmc.fabric-loom") version "1.17.16"
         id("net.neoforged.moddev") version "2.0.142"
-        id("dev.yumi.gradle.licenser") version "4.0.+"
     }
 }
 
