@@ -1,6 +1,6 @@
 # Strand  End User License Agreement
 
-**Last updated: 23rd July 2026**
+**Last updated: July 23, 2026**
 
 This End User License Agreement ("EULA") governs your use of the Epic
 Online Services ("EOS") SDK components bundled with Strand ("the
