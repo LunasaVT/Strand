@@ -34,6 +34,9 @@ jobs:
           restore-keys: |
             loom-cache-${{ runner.os }}-
 
+      - name: Make ./gradlew executable
+        run: chmod +x ./gradlew
+
       - name: Check license headers
         run: ./gradlew :common:checkLicenses :backend:checkLicenses :26.2-fabric:checkLicenses :26.2-neoforge:checkLicenses
 
