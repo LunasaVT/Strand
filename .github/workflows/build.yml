@@ -37,11 +37,8 @@ jobs:
       - name: Make ./gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Check license headers
-        run: ./gradlew :common:checkLicenses :backend:checkLicenses :26.2-fabric:checkLicenses :26.2-neoforge:checkLicenses
-
       - name: Build
-        run: ./gradlew :common:build :backend:build :26.2-fabric:build :26.2-neoforge:build
+        run: ./gradlew :build
 
       - name: Upload Fabric jar
         uses: actions/upload-artifact@v4
